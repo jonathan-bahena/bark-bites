@@ -126,49 +126,50 @@
 
     /* Hero */
     .hero {
-      padding: 4rem 1.5rem;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-      align-items: center;
+      padding: 5rem 1.5rem;
+      background: var(--hero-grad);
+      text-align: center;
+      color: #2b2b2b;
     }
 
     .hero-title {
       font-family: "Playfair Display", serif;
-      font-size: clamp(2.2rem, 3vw + 1rem, 3rem);
+      font-size: clamp(2.3rem, 3vw + 1rem, 3.2rem);
       margin-bottom: 1rem;
     }
 
     .hero-highlight { color: var(--accent-dark); }
 
     .hero-text {
-      color: var(--muted);
+      color: #4a4a4a;
       font-size: 1rem;
-      max-width: 34rem;
-      margin-bottom: 1.5rem;
+      max-width: 36rem;
+      margin: 0 auto 1.8rem;
     }
 
-    .hero-card {
+    /* Feature Section */
+    .features {
+      background: var(--bg);
+      text-align: center;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .feature {
       background: var(--card);
-      border-radius: 20px;
-      padding: 1.3rem;
+      border-radius: 18px;
+      padding: 1.5rem;
       border: 1px solid var(--border);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.04);
     }
 
-    .hero-card h3 {
-      margin-top: 0;
-      font-size: 1rem;
-    }
-
-    .hero-card p {
-      color: var(--muted);
-      font-size: 0.9rem;
-      margin: 0.5rem 0;
-    }
+    .feature h4 { margin-top: 0.5rem; font-size: 1.05rem; }
+    .feature p { color: var(--muted); font-size: 0.9rem; }
 
     /* About */
     .two-col {
@@ -182,12 +183,14 @@
       font-family: "Playfair Display", serif;
       font-size: 1.8rem;
       margin-bottom: 0.7rem;
+      text-align: center;
     }
 
     .section-subtitle {
       font-size: 0.95rem;
       color: var(--muted);
       margin-bottom: 1rem;
+      text-align: center;
     }
 
     ul.list { list-style: none; padding: 0; margin: 0; font-size: 0.95rem; color: var(--muted); }
@@ -221,10 +224,31 @@
       font-size: 0.9rem;
     }
 
-    /* Contact */
-    .contact {
+    /* How It Works */
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
       text-align: center;
     }
+
+    .step {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 1.5rem;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.04);
+    }
+
+    .step h4 {
+      margin-bottom: 0.6rem;
+      font-size: 1rem;
+      color: var(--accent-dark);
+    }
+
+    /* Contact */
+    .contact { text-align: center; }
 
     .contact a {
       color: var(--accent-dark);
@@ -246,7 +270,7 @@
     }
 
     @media (max-width: 850px) {
-      .hero-grid, .two-col { grid-template-columns: 1fr; text-align: center; }
+      .two-col { grid-template-columns: 1fr; text-align: center; }
     }
   </style>
 </head>
@@ -267,45 +291,61 @@
   </header>
 
   <main>
-    <section class="section hero" id="top">
-      <div class="section-inner hero-grid">
-        <div>
-          <h1 class="hero-title">
-            Fresh, homemade <span class="hero-highlight">meals for your dog</span>.
-          </h1>
-          <p class="hero-text">
-            Locally cooked meals made with real ingredients — sweet potato, rice, carrots, and premium proteins.
-            Wholesome, simple, and made with love.
-          </p>
-          <button class="btn btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
-            Email Us to Order
-          </button>
-        </div>
+    <section class="hero" id="top">
+      <div class="section-inner">
+        <h1 class="hero-title">
+          Fresh, homemade <span class="hero-highlight">meals for your dog</span>.
+        </h1>
+        <p class="hero-text">
+          Locally made with real, human-grade ingredients — sweet potato, rice, carrots, and your choice of protein.  
+          Small-batch cooked, perfectly portioned, and packed with love.
+        </p>
+        <button class="btn btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+          Email Us to Order
+        </button>
+      </div>
+    </section>
 
-        <aside class="hero-card">
-          <h3>Chicken Bowl</h3>
-          <p>Chicken mixed into sweet potato, rice, and carrots for a balanced, gentle meal your dog will love.</p>
-          <p><strong>Starting at $8.00 per 1 lb</strong> – price varies by protein.</p>
-        </aside>
+    <section class="section features">
+      <div class="section-inner">
+        <h2 class="section-title">Why Dogs Love Bark Bites</h2>
+        <div class="feature-grid">
+          <div class="feature">
+            <h4>🐶 Real Food</h4>
+            <p>Every bite is made from real meat and fresh veggies.</p>
+          </div>
+          <div class="feature">
+            <h4>🥣 Small Batch</h4>
+            <p>Cooked locally in small batches to keep meals fresh and nutritious.</p>
+          </div>
+          <div class="feature">
+            <h4>🌾 No Fillers, Ever</h4>
+            <p>100% real food. No mystery ingredients — just fresh, balanced nutrition.</p>
+          </div>
+          <div class="feature">
+            <h4>📦 Ready to Serve</h4>
+            <p>Comes in 1 lb containers — easy to refrigerate, scoop, and serve.</p>
+          </div>
+        </div>
       </div>
     </section>
 
     <section class="section" id="about">
       <div class="section-inner two-col">
         <div>
-          <h2 class="section-title">Simple, balanced ingredients</h2>
-          <p class="section-subtitle">Every Bark Bites meal starts with the same gentle, wholesome base.</p>
+          <h2 class="section-title">Our Recipe</h2>
+          <p class="section-subtitle">A wholesome base with just four core ingredients:</p>
           <ul class="list">
             <li>🍠 Sweet potato for fiber and energy</li>
             <li>🍚 White rice for easy digestion</li>
             <li>🥕 Carrots for vitamins and crunch</li>
-            <li>🥩 Protein mixed evenly through every bite</li>
+            <li>🥩 Premium protein mixed into every bite</li>
           </ul>
         </div>
         <div>
-          <h2 class="section-title">Cooked with care</h2>
+          <h2 class="section-title">Cooked with Care</h2>
           <p class="section-subtitle">
-            Small-batch, human-grade ingredients. No fillers, preservatives, or surprises — just real food for dogs.
+            Each meal is made fresh using human-grade ingredients, cooked just like you would at home — because dogs deserve real food too.
           </p>
         </div>
       </div>
@@ -313,10 +353,8 @@
 
     <section class="section" id="pricing">
       <div class="section-inner">
-        <h2 class="section-title" style="text-align:center;">Pricing</h2>
-        <p class="section-subtitle" style="text-align:center;">
-          Sold in 1 lb portions. Perfect for mixing, topping, or full meals.
-        </p>
+        <h2 class="section-title">Pricing</h2>
+        <p class="section-subtitle">Sold in 1 lb portions — great as a full meal or topper.</p>
         <div class="pricing-grid">
           <div class="price-card">
             <h4>Chicken Bowl</h4>
@@ -328,34 +366,50 @@
           </div>
           <div class="price-card">
             <h4>Light Turkey Mix</h4>
-            <p>$9.00 / 1 lb</p>
+            <p>$10.00 / 1 lb</p>
           </div>
         </div>
       </div>
     </section>
 
-  <section class="section contact" id="contact">
-    <div class="section-inner">
-      <h2 class="section-title">Ready to order?</h2>
-      <p class="section-subtitle">
-        To place an order, please include the following details in your email:
-      </p>
-      <ul style="list-style: none; padding: 0; margin: 0 auto 1.2rem; max-width: 420px; text-align: left; color: var(--muted); font-size: 0.95rem; line-height: 1.7;">
-        <li>🐾 Your dog’s name</li>
-        <li>🥩 Your choice of protein (chicken, beef, or turkey)</li>
-        <li>📦 How many 1 lb containers you’d like</li>
-      </ul>
-      <p style="margin-top: 1rem;">
-        <a href="mailto:barkbitesfood@gmail.com" style="color: var(--accent-dark); font-weight: 600; font-size: 1.1rem; text-decoration: none;">
-          barkbitesfood@gmail.com
-        </a>
-      </p>
-    </div>
-  </section>
+    <section class="section">
+      <div class="section-inner">
+        <h2 class="section-title">How It Works</h2>
+        <div class="steps">
+          <div class="step">
+            <h4>1️⃣ Email Your Order</h4>
+            <p>Tell us your dog’s name, preferred protein, and how many 1 lb containers you’d like.</p>
+          </div>
+          <div class="step">
+            <h4>2️⃣ We Cook Fresh</h4>
+            <p>Your meals are prepared in small batches with fresh, local ingredients.</p>
+          </div>
+          <div class="step">
+            <h4>3️⃣ Pick Up or Delivery</h4>
+            <p>We’ll coordinate your local pickup or delivery once your order is ready. (Delivery Fees May Apply)</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact" id="contact">
+      <div class="section-inner">
+        <h2 class="section-title">Ready to Order?</h2>
+        <p class="section-subtitle">Send your order details to:</p>
+        <ul style="list-style:none; padding:0; margin:0 auto 1.2rem; max-width:420px; text-align:left; color:var(--muted); font-size:0.95rem; line-height:1.7;">
+          <li>🐾 Your dog’s name</li>
+          <li>🥩 Your choice of protein (chicken, beef, or turkey)</li>
+          <li>📦 Number of 1 lb containers</li>
+        </ul>
+        <p>
+          <a href="mailto:barkbitesfood@gmail.com">barkbitesfood@gmail.com</a>
+        </p>
+      </div>
+    </section>
   </main>
 
   <footer>
-    © <span id="year"></span> Bark Bites · Homemade Dog Meals 🐾 · Made locally.
+    © <span id="year"></span> Bark Bites · Homemade Dog Meals 🐾 · Made locally with love.
   </footer>
 
   <script>
@@ -363,4 +417,3 @@
   </script>
 </body>
 </html>
-
